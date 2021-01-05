@@ -1,0 +1,24 @@
+{
+  "name": "social-media-project",
+  "version": "1.0.0",
+  "description": "```shell\r $  mysql -u root\r ```\r ```mysql\r create database cbsocialmediadb1;",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rajneesh-9088/social-media-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rajneesh-9088/social-media-project/issues"
+  },
+  "homepage": "https://github.com/Rajneesh-9088/social-media-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}
