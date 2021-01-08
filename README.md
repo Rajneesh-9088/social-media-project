@@ -1,4 +1,4 @@
-# Social Media Simple Project
+# Social Media  Project
 
 
 ## Database Setup
@@ -19,15 +19,45 @@ flush privileges;
 ```
 ## Project Structure
 
-```shell
+### Backend
 
+```shell
 src
----> controlers    # functions to connect routes to db operations
----> db            # db connection and model definitions     
----> public        # html/js/css for static part of website            
----> routes        # express middlewares (route wise)    
+├───controllers    # db connection and model definitions 
+├───db             # functions to connect routes to db operations
+├───public         # html/js/css for static part of website     
+│   ├───app
+│   ├───components
+│   ├───css
+│   └───js         # express middlewares (route wise)      
+├───routes       
+│   ├───posts
+│   └───users
+└───utils
 
 ```
+### Frontend
+
+```shell
+public
+│   index.html             # first/ home page
+│
+├───app                    # own frontend js code
+│       social-common.js
+│
+├───components             # own html snippets      
+│       navbar.html
+│
+├───css                    # bootstrap library
+│       bootstrap.css
+│
+└───js                     # javascript library
+        bootstrap.js
+        jquery-3.3.1.js
+        popper.js
+ 
+```
+
 ## Business Logic
 
 ### Users
@@ -59,6 +89,37 @@ src
  2. **show all comments under a post**
 
  3. **add a comment**
+
+ ## API DOCUMENTATIONS
+
+ ### `users`
+
+ 1. `POST/users`
+ Create a user with randome username and user id
+
+ 2. `GET/users/{userid}` 
+ Get a user with given user id 
+
+ 3. `GET/users/{username}`
+  Get a user with given username
+
+ ### `posts`
+
+ 1. `GET/posts` 
+ Get all posts of everyone
+
+ 2. `POST/posts`
+ Create a new post
+
+ Required fields in body -
+
+ ```
+userid
+body
+title
+ ```
+
+
 
 
 
