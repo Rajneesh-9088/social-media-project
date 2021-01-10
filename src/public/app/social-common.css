@@ -1,9 +1,10 @@
 #content{
-    height: 2000px;
+    /* height: 2000px; */
 }
 #navbar{
     position: sticky;
     top: 0px;
+    z-index: 1;
 }
 #footer{
    
@@ -12,4 +13,5 @@
     background-color: var(--light);
     position: sticky;
     bottom: 0px;
+    /* z-index: 0.1; */
 }
