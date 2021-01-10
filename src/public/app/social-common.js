@@ -1,8 +1,26 @@
-$(()=> {
-    $('#navbar').load('../components/navbar.html')
-    
+$(() => {
+    $('#navbar').load('/components/navbar.html', loginIfNeeded)
+    $('#footer').load('/components/footer.html')
+    // loginIfNeeded()
+
 })
-// $(document).ready( () => {
-//     $('#navbar').load('/navbar.html')
-//     console.log("rajneesh");
-// })
+function loginIfNeeded() {
+    window.currentUser = window.localStorage.user ? JSON.parse(window.localStorage.user) : null;
+
+    if (!currentUser) {
+        $.post('/api/users', {}, (user) => {
+            
+            if (user) {
+                console.log('registered as ', user.username)
+                window.localStorage.user = JSON.stringify(user)
+                currentUser = user
+                console.log("User", currentUser.username)
+                $('#nav-username').text(currentUser.username)
+            }
+        })
+    }  
+     else {
+        console.log('resuming session as', currentUser.username)
+        $('#nav-username').text(currentUser.username)
+ }
+}
