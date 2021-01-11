@@ -43,7 +43,7 @@ public
 │   index.html             # first/ home page
 │
 ├───app                    # own frontend js code
-│       social-common.js
+│       common.js
 │
 ├───components             # own html snippets      
 │       navbar.html
