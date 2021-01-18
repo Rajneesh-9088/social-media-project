@@ -1,5 +1,6 @@
 const express = require('express');
 const app  = express()
+const PORT = process.env.PORT || 3333
 
 const {db} = require('./db/models');
 
@@ -16,8 +17,8 @@ app.use('/', express.static(__dirname + '/public'))
 
 // force: true create new table after deleting existing one
 db.sync().then(() => {
-    app.listen(3333,() => {
-        console.log('server started on http://localhost:3333');
+    app.listen(PORT,() => {
+        console.log(`server started on http://localhost:${PORT}`);
     })
     
 }).catch((err) => {

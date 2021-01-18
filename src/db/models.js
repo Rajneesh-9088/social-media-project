@@ -1,11 +1,27 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize({
-    dialect: 'mysql',
-    database: 'cbsocialmediadb1',
-    username: 'cbsocialuser1',
-    password: 'cbsocialpass1'
-})
+
+
+let db;
+if(process.env.NODE_ENV=='testing'){
+    db = new Sequelize({
+        dialect: 'sqlite',
+        storage: __dirname + '/../../test/test.db'
+
+    })
+    
+
+}
+else{
+    db = new Sequelize({
+        dialect: 'mysql',
+        database: 'cbsocialmediadb1',
+        username: 'cbsocialuser1',
+        password: 'cbsocialpass1'
+    })
+  
+}
+
 
 const COL_ID_DEF = {
     type: Sequelize.DataTypes.INTEGER,
@@ -27,7 +43,7 @@ const COL_TITLE_DEF = {
 const Users = db.define('user',{
     id: COL_ID_DEF,   
     username: COL_NAME_DEF   
-})
+}) 
 
 const Posts = db.define('post',{
     id: COL_ID_DEF,
